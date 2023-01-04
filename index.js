@@ -8,19 +8,18 @@ const jwt=require("jsonwebtoken");
 const bodyparser=require("body-parser");
 const cache=require("memory-cache");
 const morgan=require("morgan");
-const  ProtectedRoutes = express.Router(); 
-app.use('/api', ProtectedRoutes);
+const cookieparser=require("cookie-parser");
 app.set('view engine',ejs); 
 app.use(express.static(`${__dirname}/public`));
-app.use(bodyparser.urlencoded({extended:false}));
+app.use(bodyparser.urlencoded({extended:true}));
 const config=require("./configurations/config");
-app.set('Secret',config.secret);
 const port=5000;
+app.use(cookieparser());
 var con = mysql.createConnection({
-    host: "localhost",
-    user: "root", // my username
-    password: "", // my password
-    database: "indiahedge"
+   host:config.host,
+   user:config.user,
+   password:config.password,
+   database:config.database
 });
 // ProtectedRoutes.use((req, res, next) =>{
 //     // check header for the token
@@ -49,7 +48,6 @@ var con = mysql.createConnection({
 if(!con){
     console.log("DB connection failed");
 }
-var flag=false;
 app.use(morgan('dev'));
 app.get("/",(req,res)=>{
     res.sendFile(__dirname+"/TradesOnTheHouse.html", (err) => {
@@ -120,14 +118,12 @@ app.post("/login",(req,res)=>{
                 throw err;
             }
             if(Object.keys(result).length>0){
-                const payload={
-                    check:true
-                };
-                var token=jwt.sign(payload,app.get('Secret'),{
-                    expiresIn:60*60*24
-                });
+                console.log("inside login");
+                const token = jwt.sign({email:email},config.secret,{expiresIn:'3d'});
+                // maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week in milliseconds
                 console.log(token);
-               res.redirect("/data");
+                res.cookie('jwt', token, { httpOnly: true,maxAge:1000*60*60*24*3});
+                res.redirect("/data");
             }
             else{
                 res.sendFile(__dirname+'/public/html/faillog.html');
@@ -156,61 +152,68 @@ app.post("/register",(req,res)=>{
                 con.query(sql, function (err, result) {
                     if (err){
                         console.log(err);
-                    }else{
-                        flag=true;
+                    }
+                    else{
+                        const token = jwt.sign({email:email},config.secret,{expiresIn:'3d'});
+                        console.log(token);
+                        res.cookie('jwt', token, { httpOnly: true,maxAge:1000*60*60*24*3});
                        res.redirect("/data");
                     };
                 });
             }
         })
     })
-// })
-function verifyToken(req, res, next) {
-    // Get the authorization header from the request
-    const authorizationHeader = req.headers.authorization;
-  
-    // Check if the authorization header is present
-    if (!authorizationHeader) {
-    res.redirect("/sign");
+const verify = (req, res, next) => {
+    if(typeof req.cookies.jwt=== 'undefined'){
+        res.redirect("/sign");
     }
-  
-    // Get the token from the authorization header
-    const token = authorizationHeader;
-     console.log("token: -"+ token);
-    // Verify the token
-    jwt.verify(token, app.Secret, (error, decoded) => {
-      if (error) {
-        return res.status(401).send({ error: 'Invalid token' });
-      }
-      req.decoded = decoded;
-      next();
-    });
-  }
-  
-app.get("/data",verifyToken,(req,res)=>{
-  const cachedResult = cache.get('data');
-    if (cachedResult) {
-        console.log("This is cached data");
- // Return the cached result
-      res.render("data.ejs",{result:cachedResult});
-      return;
-    }
-    //query the database and put data in cache
-    let sq=`select * from data` ;
-    con.query(sq,(err,result)=>{
-        if(err){ console.log(err);
-            res.status(500).send('Internal server error '+err);
+    else{
+   const token=req.cookies.jwt;
+  if (token) {
+    jwt.verify(token,config.secret,(err,decoded)=>{
+        if(err){
+            console.log(err);
+            res.redirect("/sign");
         }
         else{
-            cache.put('data',result,86400000);
-            //after 1 day data will be removed from cache and it needs to be re-cached
-            console.log("query is used");
-            res.render("data.ejs",{result:result});
+            console.log("decoded:- "+ decoded);
+            next();
         }
     })
-})
-
-// Set up the route for the page
+    // Credentials are valid, proceed to the next middleware
+  }
+  else{
+    res.redirect("/sign");
+  }
+   }
+}
+app.get("/data",verify,(req,res)=>{
+    const cachedResult = cache.get('data');
+        if (cachedResult) {
+            console.log("This is cached data");
+     // Return the cached result
+          res.render("data.ejs",{result:cachedResult});
+          return;
+        }
+        //query the database and put data in cache
+        let sq=`select * from data` ;
+        con.query(sq,(err,result)=>{
+            if(err){ console.log(err);
+                res.status(500).send('Internal server error '+err);
+            }
+            else{
+                cache.put('data',result,86400000);
+                //after 1 day data will be removed from cache and it needs to be re-cached
+                console.log("query is used");
+                res.render("data.ejs",{result:result});
+            }
+        })
+        }
+    )
+app.get('/logout', (req, res) => {
+        res.clearCookie('jwt');
+        res.redirect("/");
+      });
 app.get('/analysis', (req, res) => {
     // Select the text and images from the database
     con.query("SELECT * FROM analysis", (error, result) => {
