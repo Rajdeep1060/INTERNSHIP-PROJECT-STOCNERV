@@ -1,0 +1,58 @@
+2023-01-04T16:28:42.352Z [INFO]: # Cloning repository: git@github.com:Rajdeep1060/TH.git
+2023-01-04T16:28:45.145Z [INFO]: 
+2023-01-04T16:28:45.147Z [INFO]: Cloning into 'TH'...
+2023-01-04T16:28:45.147Z [INFO]: # Switching to commit: e83c6611e06fa14be7362cbefb3e993245c5ea71
+2023-01-04T16:28:45.168Z [INFO]: Note: switching to 'e83c6611e06fa14be7362cbefb3e993245c5ea71'.
+                                 You are in 'detached HEAD' state. You can look around, make experimental
+                                 changes and commit them, and you can discard any commits you make in this
+                                 state without impacting any branches by switching back to a branch.
+                                 If you want to create a new branch to retain commits you create, you may
+                                 do so (now or later) by using -c with the switch command. Example:
+                                 git switch -c <new-branch-name>
+                                 Or undo this operation with:
+                                 git switch -
+                                 Turn off this advice by setting config variable advice.detachedHead to false
+                                 HEAD is now at e83c661 Update README.md
+2023-01-04T16:28:45.233Z [INFO]: Successfully cleaned up Git credentials
+2023-01-04T16:28:45.234Z [INFO]: # Checking for Git submodules at: /codebuild/output/src109970296/src/TH/.gitmodules
+2023-01-04T16:28:45.241Z [INFO]: # Retrieving environment cache...
+2023-01-04T16:28:45.302Z [WARNING]: ! Unable to write cache: {"code":"ERR_BAD_REQUEST","message":"Request failed with status code 404"})}
+2023-01-04T16:28:45.302Z [INFO]: ---- Setting Up SSM Secrets ----
+2023-01-04T16:28:45.302Z [INFO]: SSM params {"Path":"/amplify/d28upcs72ynp4o/staging/","WithDecryption":true}
+2023-01-04T16:28:45.334Z [WARNING]: !Failed to set up process.env.secrets
+2023-01-04T16:28:45.337Z [INFO]: # Defaulting to Node version 16
+2023-01-04T16:28:58.844Z [INFO]: # Node version 16 is available for installation
+2023-01-04T16:28:58.930Z [INFO]: # Installing Node version 16
+2023-01-04T16:29:08.159Z [INFO]: # Now using Node version 16
+2023-01-04T16:29:08.263Z [INFO]: No live updates for this build run
+2023-01-04T16:29:08.265Z [INFO]: # Retrieving cache...
+2023-01-04T16:29:10.767Z [INFO]: # Extracting cache...
+2023-01-04T16:29:11.759Z [INFO]: # Extraction completed
+2023-01-04T16:29:11.868Z [INFO]: # Retrieved cache
+2023-01-04T16:30:12.282Z [INFO]: ## Starting Backend Build
+                                 ## Checking for associated backend environment...
+2023-01-04T16:30:12.285Z [INFO]: ## Backend environment association found
+2023-01-04T16:30:17.224Z [INFO]: [33mNote: It is recommended to run this command from the root of your app directory[39m
+2023-01-04T16:30:17.227Z [INFO]: [32mThe following configuration will be applied:[39m
+2023-01-04T16:30:17.227Z [INFO]: [0mProject information[0m
+                                 [0m| Name: THFY4iR[0m
+                                 [0m| Environment: staging[0m
+                                 [0m| Default editor: Visual Studio Code[0m
+2023-01-04T16:30:17.362Z [INFO]: [0m| App type: javascript[0m
+2023-01-04T16:30:17.364Z [INFO]: [0m| Javascript framework: none[0m
+2023-01-04T16:30:17.364Z [INFO]: [0m| Source Directory Path: src[0m
+                                 [0m| Distribution Directory Path: dist[0m
+                                 [0m| Build Command: npm run-script build[0m
+                                 [0m| Start Command: npm run-script start[0m
+2023-01-04T16:30:17.364Z [INFO]: 
+2023-01-04T16:30:47.491Z [INFO]: [0mError: AWS access credentials can not be found.[0m
+                                 [0m    at newUserCheck (/root/.nvm/versions/node/v14.19.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation/src/configuration-manager.ts:692:13)[0m
+                                 [0m    at Object.init (/root/.nvm/versions/node/v14.19.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation/src/configuration-manager.ts:77:11)[0m
+                                 [0m    at processTicksAndRejections (node:internal/process/task_queues:96:5)[0m
+                                 [0m    at Object.run (/root/.nvm/versions/node/v14.19.0/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation/src/initializer.ts:26:3)[0m
+2023-01-04T16:30:47.491Z [HELP]: You do not have a role attached to your app
+2023-01-04T16:30:47.514Z [ERROR]: !!! Build failed
+2023-01-04T16:30:47.514Z [ERROR]: !!! Non-Zero Exit Code detected
+2023-01-04T16:30:47.514Z [INFO]: # Starting environment caching...
+2023-01-04T16:30:47.514Z [INFO]: # Environment caching completed
+Terminating logging...
