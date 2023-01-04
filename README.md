@@ -15,3 +15,5 @@ How to start the project
 5)now write nodemon index.js in terminal    
 
 6)Now open localhost:5000 and you can see the project.
+
+NOTE: Using AWS Amplify
