@@ -16,4 +16,4 @@ How to start the project
 
 6)Now open localhost:5000 and you can see the project.
 
-NOTE: Using AWS Amplify
+NOTE: Using AWS Amplify code
