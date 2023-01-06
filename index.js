@@ -13,7 +13,7 @@ app.set('view engine',ejs);
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyparser.urlencoded({extended:true}));
 const config=require("./configurations/config");
-const port=5000;
+const port=3000;
 app.use(cookieparser());
 var con = mysql.createConnection({
    host:config.host,
