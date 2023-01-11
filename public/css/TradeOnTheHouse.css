@@ -15,7 +15,7 @@ body {
     color:black;
     width:100%;
     font-size: 22px;
-    height: 6vh;
+    height: 5vh;
     padding-bottom: 0.7%;
 }
 p{
@@ -117,19 +117,8 @@ p{
     display: flex;
     flex-direction: row;
 }
-@media (max-width: 801px) {
-   .section2 a button{
-        width:50%;
-        height:15vh;
-   }
-   .award1-parent{
-    height:10vh ;
-    font-size: 10px;
-    display: hidden;
-   }
-  }
 .secchild{
-    width:33%;
+    width:33.2%;
 }
 .section3{
     font-size:27px;
@@ -174,12 +163,15 @@ p{
     position:relative;
     text-align: center;
 }
+.award3 img{
+    height:72vh;
+}
 .section3 .award3 .award3-parent{
     position: absolute;
     background-color:rgba(218, 95, 213, 0.3);
     top: 82%;
     height:25vh;
-    width:95%;
+    width:100%;
   left: 50%;
   overflow: hidden;
   transform: translate(-50%, -50%);
@@ -188,6 +180,134 @@ p{
    
     margin-top:11%;
 }
+.section3 .award3 img{
+    min-width: 100%;
+}
 .section5-navbar{
+    margin-top:2%;
     margin-bottom: 0;
+}
+.uppernav img{
+    width:4%;height: 5vh;border-radius: 50%;margin-left:1%;
+}
+@media (max-width: 800px) {
+    .section1 img{
+        height:70vh;
+    }
+    .section2 img{
+        height:69vh;
+    }
+    .section1-child{
+        margin-top: 30%;
+        font-size: 28px;
+    }
+    .uppernav img{
+      margin-left: 0.3%;
+        width: 13%;
+    }
+   .section2-parent p{
+    margin-top:15%;
+    font-size: 27px;
+   }
+   .section2 a button{
+    margin-top:5%;
+    width:70%;
+    padding:2%;
+    height:15vh;
+}
+   .award1-parent{
+    height:10vh ;
+    font-size: 10px;
+    display: hidden;
+   } 
+   .section3 .award1 .award1-parent {
+    position: absolute;
+    background-color: rgba(218, 95, 213, 0.3);
+    width: 100%;
+    overflow: hidden;
+    height: 14vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 72%;
+}
+   .section3 .award1 .award1-parent p {
+    margin-top: 41%;
+}
+.img-fluid {
+    max-width: 100%;
+    height: 25vh;
+    width: 50vw;
+}
+p {
+    font-weight: bold;
+    font-size: 17px;
+}
+.section3 .award1-parent,.award2-parent.award3-parent{
+    background-color: rgba(218, 95, 213, 0.2);
+}
+.award3 img {
+    height: 27vh;
+}
+.section3 .award2 .award2-parent {
+    position: absolute;
+    width: 100%;
+    top: 72%;
+    height: 14vh;
+    overflow: hidden;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.section3 .award2 .award2-parent p {
+    margin-top: 42%;
+}
+.section3 .award3{
+    width:35%;
+}
+.section3 .award3 .award3-parent {
+    position: absolute;
+    background-color: rgba(218, 95, 213, 0.3);
+    top: 72%;
+    height: 14vh;
+    width: 95%;
+    left: 50%;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+}
+.section3 .award3 .award3-parent p {
+    margin-top: 45%;
+}
+.section3 .award2 .award2-parent p {
+    margin-top: 25%;
+}
+.award3 img {
+    height: 25vh;
+}
+.section3 .award2 .award2-parent p {
+    margin-top: 41.4%;
+}
+  }
+@media (min-width:801px) and (max-width:1500px) {
+    .section3 img{
+        height:30vh;
+       width:100%;
+    }
+    .ap {
+        font-size:20px;
+        top:60%;
+        min-height: 10vh;
+        max-height: 14vh;
+    }
+    .section2 a button{
+        width:55%;
+    }
+    .section3 .award3 .award3-parent {
+        position: absolute;
+        background-color: rgba(218, 95, 213, 0.3);
+        top: 82%;
+        height: 23vh;
+        width: 100%;
+        left: 50%;
+        overflow: hidden;
+        transform: translate(-50%, -50%);
+    }
 }

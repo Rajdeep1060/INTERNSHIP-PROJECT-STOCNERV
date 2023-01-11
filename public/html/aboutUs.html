@@ -26,7 +26,7 @@
       width: 100%;
       font-size: 22px;
       text-align: left;
-      height: 6vh;
+      height: 5vh;
       padding-bottom: 1%;
     }
     #name{
@@ -63,6 +63,28 @@
     .foo{
       margin-top: 5%;
     }
+    #uppernav img{
+      width:4%;
+      height: 5vh;
+      border-radius: 50%;
+      margin-left:1%;
+    }
+    @media (max-width:1500px) {
+      .team {
+      display: flex;
+      flex-direction: column;
+    }
+    .child {
+    width: 100%;
+      }
+      #uppernav img{
+        width:13%;
+      }
+      .team img {
+    height: 60vh;
+    width: 75%;
+    }
+    }
   </style>
 </head>
 
@@ -71,8 +93,8 @@
   width: 100%;
   background-color: black;"></div>
   <div id="uppernav">
-    <img src="images/toth.png" alt="..." style="width:4%;height: 5vh;border-radius: 50%;margin-left:1%">
-    TradesOnTheHouse
+    <img src="images/toth.png" alt="...">
+    TradeOnTheHouse
   </div>
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
@@ -83,7 +105,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
-          <a class="nav-link active" href="/plus">TradesOnTheHouse Plus</a>
+          <a class="nav-link active" href="/plus">TradeOnTheHouse Plus</a>
           <a class="nav-link active" href="/about">About Us</a>
           <a class="nav-link active" href="/contact">Contact Us</a>
         </div>
@@ -91,9 +113,9 @@
     </div>
   </nav>
   <div class="about">
-    <h1>About TradesOnTheHouse</h1><br>
+    <h1>About TradeOnTheHouse</h1><br>
     <p style="font-size:20px;"><i>
-        TradesOnTheHouse is a Joint Venture of JINEE Inc (Pennsylvania, U.S.A.) and Stocnerv Learning Pvt Limited
+        TradeOnTheHouse is a Joint Venture of JINEE Inc (Pennsylvania, U.S.A.) and Stocnerv Learning Pvt Limited
         (Jaipur, India). We aim to provide financial education with the goal of reaching financial independence. To make
         trading | advisory | analysis free and accessible to all, traders across the world can hop on to our platform
         and access the research data countrywise.
@@ -106,7 +128,7 @@
         of doing herd-trading.
         <br>
         <b>Analyze - Learn - Trade - Earn<br>
-          Team TradesontheHouse </i></b>
+          Team TradeontheHouse </i></b>
     </p>
   </div>
   <br>
@@ -126,7 +148,7 @@
     <div class="member2 child">
       <img src="images/Sahil Nyati.jpg" alt="..." class="image">
       <br>
-      <p id="name">Sahil Nyati-Director(U.S.)</p>
+      <p id="name">Sahil Nyati-Director(USA)</p>
     </div>
   </div>
   <footer class="foo text-center text-lg-dark text-muted ">
@@ -165,5 +187,4 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
 </body>
-
 </html>

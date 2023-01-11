@@ -22,7 +22,7 @@
       color: black;
       width: 100%;
       font-size: 22px;
-      height: 6vh;
+      height: 5vh;
       padding-bottom: 1%;
     }
 
@@ -45,8 +45,9 @@
     }
     .left p {
       color: blue;
-      margin-top:10%;
-      font-size: 35px;
+      margin-top:1%;
+      font-size: 45px;
+      margin-left: 5%;
     }
     #pen{
       width: max-content;
@@ -178,15 +179,28 @@
       margin-top: 100px;
       background-color: #2c2c2c;
     }
-    @media (max-width: 768px) {
+    .uppernav img{
+      width:4%;height: 5vh;border-radius: 50%;margin-left:1%;
+    }
+    #pen{
+      width: 100%;
+    }
+    @media (max-width: 770px) {
       .left{
         margin-top: 5%;
         font-size:20px;
         width:100%;
       }
+      .uppernav img{
+        width: 13%;
+      }
       .contact{
         flex-direction: column;
       }
+      ul {
+    text-align: left;
+}
+
       .container{
         width: 80%;
         margin-top: 4%;
@@ -196,10 +210,11 @@
         width: 100%;
       }
       .left p{
+        text-align: center;
         font-size:30px;
       }
       ul{
-        margin-left: 15%;
+        margin-left: 5%;
         text-align: left;
       }
       ul li{
@@ -208,17 +223,20 @@
       button{
         margin-top:5%;
       }
+      .foo{
+        margin-top:22%;
+      }
     }
   </style>
 </head>
 
-<body onload="initMap()">
+<body>
   <div style="  height: 1.5vh;
   width: 100%;
   background-color: black;"></div>
   <div class="uppernav">
-    <img src="images/toth.png" alt="..." style="width:4%;height: 5vh;border-radius: 50%;margin-left:1%">
-    TradesOnTheHouse
+    <img src="images/toth.png" alt="...">
+    TradeOnTheHouse
     <!-- <img src="images/logo.jpg" id="logo" alt="..."> -->
   </div>
   <nav class="navbar navbar-expand-lg navbar-dark">
@@ -230,7 +248,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
-          <a class="nav-link active" href="/plus">TradesOnTheHouse Plus</a>
+          <a class="nav-link active" href="/plus">TradeOnTheHouse Plus</a>
           <a class="nav-link active" href="/about">About Us</a>
           <a class="nav-link active" href="/contact">Contact Us</a>
         </div>
@@ -243,10 +261,17 @@
       <br>
   <ul style="list-style-type: none;">
     <li id="jai">
-      📍JAIPUR,INDIA 
-    </li>&emsp;
+      📍US:<br>
+      280 MOON CLINTON RD, MOON TWP, PA, United States,15108
+    </li><br><br>
     <li id="pen">
-         📍PENNSYLVANIA,USA
+         📍India: <br>
+        
+         Head office: <br>
+         Bhamashah Techno Hub, Sansthan Path, Jhalana Gram, Malviya Nagar, Jaipur, Rajasthan 302017 <br>
+        
+         Consultation cell : <br>
+         P. No. 112/7,  Off No S9, Madhyam marg, vijay path, mansarovar,jaipur 302020
     </li>
   </ul>
     </div>
@@ -260,14 +285,14 @@
             <label>Name</label>
           </div>
         </div>
-        <div class="col-md-6 col-sm-12">
-          <div class="styled-input">
+        <div class="col-xs-12">
+          <div class="styled-input wide">
             <input type="email" name="email" required>
             <label>Email</label>
           </div>
         </div>
-        <div class="col-md-6 col-sm-12">
-          <div class="styled-input" style="float:right;">
+        <div class="col-xs-12">
+          <div class="styled-input wide">
             <input type="text" name="phone" maxlength="10" required>
             <label>Phone Number</label>
           </div>

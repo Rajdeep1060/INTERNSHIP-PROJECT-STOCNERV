@@ -214,7 +214,7 @@ app.get('/logout', (req, res) => {
         res.clearCookie('jwt');
         res.redirect("/");
       });
-app.get('/analysis', (req, res) => {
+app.get('/analysis',(req, res) => {
     // Select the text and images from the database
     con.query("SELECT * FROM analysis", (error, result) => {
         if(error){
@@ -235,12 +235,6 @@ app.get('/analysis', (req, res) => {
         }
     });
 });
-
-// Start the server
-// app.get("/clear",(req,res)=>{
-//     res.send("Cache is cleared");
-//     cache.clear();
-// })
 app.listen(port,()=>{
     console.log(`server is running on http://localhost:${port}`);
 })
